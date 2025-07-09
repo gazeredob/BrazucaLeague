@@ -1,6 +1,6 @@
 // src/pages/Home.jsx
 import { Link } from 'react-router-dom';
-import { timesData } from '../data'; // Importar dados
+import { timesData } from '../data';
 
 const TimeCard = ({ time }) => (
   <Link to={`/times/${time.id}`} className="flex-shrink-0 w-40 h-40 flex flex-col items-center justify-center bg-brand-gray rounded-lg p-4 text-center space-y-2 hover:bg-gray-700 transition-colors">
@@ -24,16 +24,25 @@ export default function Home() {
       {/* Transmissão Ao Vivo */}
       <section>
         <h3 className="text-2xl font-bold mb-4 text-white">Ao Vivo Agora</h3>
-        <div className="aspect-video bg-brand-gray rounded-lg overflow-hidden">
+        <div className="aspect-video bg-brand-gray rounded-lg overflow-hidden shadow-lg">
           <iframe 
             className="w-full h-full" 
-            src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1" // Link de exemplo (sim, é esse mesmo)
+            src="https://www.youtube.com/embed/jfKfPfyJRdk?autoplay=1&mute=1" // Usei um lofi para não ter Rick Astley :)
             title="Transmissão ao vivo" 
             frameBorder="0" 
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
             allowFullScreen>
           </iframe>
         </div>
+      </section>
+      
+      {/* VOTAÇÃO ADICIONADA AQUI */}
+      <section className="bg-brand-gray p-6 rounded-lg text-center">
+        <h3 className="text-2xl font-bold mb-2 text-white">Vote no Melhor da Partida!</h3>
+        <p className="text-gray-400 mb-4">Partida: Fúria Gaúcha vs Estrelas do Sul</p>
+        <Link to="/votacao" className="bg-brand-green text-brand-dark px-8 py-3 rounded-lg font-bold uppercase hover:bg-green-400 transition-transform hover:scale-105 inline-block">
+            Votar Agora
+        </Link>
       </section>
 
       {/* Lista de Times */}
