@@ -45,3 +45,11 @@ export const classificacaoData = [
   { pos: 7, timeId: 7, p: 6, j: 10, v: 2, e: 0, d: 8, gp: 15, gc: 35, sg: -20, ultimos: ['D', 'D', 'V', 'D', 'D'] },
   { pos: 8, timeId: 8, p: 3, j: 10, v: 1, e: 0, d: 9, gp: 12, gc: 40, sg: -28, ultimos: ['D', 'D', 'D', 'L', 'D'] },
 ];
+
+
+export const partidasData = [
+  { id: 1, rodada: 11, data: '12/07', hora: '16:30', local: 'Maracanã', timeCasaId: 1, timeForaId: 2 },
+  { id: 2, rodada: 11, data: '12/07', hora: '18:30', local: 'Mané Garrincha', timeCasaId: 3, timeForaId: 4 },
+  { id: 3, rodada: 11, data: '12/07', hora: '21:00', local: 'Arena Fonte Nova', timeCasaId: 5, timeForaId: 6 },
+  { id: 4, rodada: 11, data: '13/07', hora: '19:00', local: 'Neo Química Arena', timeCasaId: 7, timeForaId: 8 },
+];
