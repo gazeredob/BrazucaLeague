@@ -43,7 +43,7 @@ export const classificacaoData = [
   { pos: 5, timeId: 5, p: 12, j: 10, v: 4, e: 0, d: 6, gp: 20, gc: 28, sg: -8, ultimos: ['D', 'V', 'V', 'D', 'D'] },
   { pos: 6, timeId: 6, p: 9, j: 10, v: 3, e: 0, d: 7, gp: 18, gc: 32, sg: -14, ultimos: ['V', 'D', 'D', 'D', 'V'] },
   { pos: 7, timeId: 7, p: 6, j: 10, v: 2, e: 0, d: 8, gp: 15, gc: 35, sg: -20, ultimos: ['D', 'D', 'V', 'D', 'D'] },
-  { pos: 8, timeId: 8, p: 3, j: 10, v: 1, e: 0, d: 9, gp: 12, gc: 40, sg: -28, ultimos: ['D', 'D', 'D', 'L', 'D'] },
+  { pos: 8, timeId: 8, p: 3, j: 10, v: 1, e: 0, d: 9, gp: 12, gc: 40, sg: -28, ultimos: ['D', 'D', 'D', 'D', 'D'] },
 ];
 
 
