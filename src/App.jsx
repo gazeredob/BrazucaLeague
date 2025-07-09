@@ -1,7 +1,8 @@
-// src/App.jsx
+// src/App.jsx (CORRIGIDO)
 
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-dom';
+// A correção está aqui: Adicionamos 'Link' à lista de imports
+import { BrowserRouter as Router, Routes, Route, NavLink, Link } from 'react-router-dom'; 
 import Home from './pages/Home';
 import Times from './pages/Times';
 import Jogadores from './pages/Jogadores';
@@ -28,6 +29,7 @@ function App() {
         <aside className="bg-brand-dark md:bg-gray-900 w-full md:w-72 p-6 border-b md:border-b-0 md:border-r border-gray-700 flex-shrink-0">
           <Logo />
           <nav className="flex flex-col space-y-2">
+            {/* O atributo 'end' no NavLink da Home garante que ele só fica ativo na página inicial exata */}
             <NavLink to="/" className={linkStyle} style={({ isActive }) => isActive ? activeLinkStyle : undefined} end>Início</NavLink>
             <NavLink to="/classificacao" className={linkStyle} style={({ isActive }) => isActive ? activeLinkStyle : undefined}>Classificação</NavLink>
             <NavLink to="/times" className={linkStyle} style={({ isActive }) => isActive ? activeLinkStyle : undefined}>Times</NavLink>
