@@ -3,17 +3,28 @@
 import { classificacaoData, timesData, partidasData } from '../data';
 
 // Componente para a bolinha de V/E/D
-const UltimosJogos = ({ resultados }) => (
-  <div className="flex space-x-1">
-    {resultados.map((res, index) => (
-      <div key={index} className={`w-3 h-3 rounded-full 
-        ${res === 'V' ? 'bg-green-500' : ''}
-        ${res === 'E' ? 'bg-gray-500' : ''}
-        ${res === 'D' ? 'bg-red-500' : ''}`}
-      ></div>
-    ))}
-  </div>
-);
+const UltimosJogos = ({ resultados }) => {
+  const getDotColor = (result) => {
+    switch (result) {
+      case 'V':
+        return 'bg-green-500'; // Vitória
+      case 'E':
+        return 'bg-gray-500';  // Empate
+      case 'D':
+        return 'bg-red-500';    // Derrota
+      default:
+        return 'bg-gray-700';   // Cor padrão para casos inesperados
+    }
+  };
+
+  return (
+    <div className="flex space-x-1">
+      {resultados.map((res, index) => (
+        <div key={index} className={`w-3 h-3 rounded-full ${getDotColor(res)}`}></div>
+      ))}
+    </div>
+  );
+};
 
 // Componente para o Card de cada partida
 const PartidaCard = ({ partida }) => {
