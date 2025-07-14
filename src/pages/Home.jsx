@@ -11,7 +11,6 @@ const TimeCard = ({ time }) => (
 
 export default function Home() {
   const ultimosResultados = partidasData.filter(p => p.placarCasa !== null).slice(0, 3);
-  console.log("DADOS QUE SERÃO MOSTRADOS:", ultimosResultados);
 
 
   return (
