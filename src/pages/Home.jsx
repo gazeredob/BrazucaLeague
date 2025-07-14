@@ -10,8 +10,8 @@ const TimeCard = ({ time }) => (
 );
 
 export default function Home() {
-  // Pegando os 3 primeiros jogos com placar para mostrar na home
   const ultimosResultados = partidasData.filter(p => p.placarCasa !== null).slice(0, 3);
+
 
   return (
     <div className="space-y-12">
@@ -43,9 +43,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* NOVO LAYOUT: Transmissão e Votação lado a lado em telas grandes */}
+      {/* Layout: Transmissão e Votação */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-        {/* Coluna da Esquerda: Transmissão */}
         <section>
           <h3 className="text-2xl font-bold mb-4 text-white">Ao Vivo Agora</h3>
           <div className="aspect-video bg-brand-gray rounded-lg overflow-hidden shadow-lg">
@@ -60,7 +59,6 @@ export default function Home() {
           </div>
         </section>
         
-        {/* Coluna da Direita: Votação */}
         <section className="bg-brand-gray p-6 rounded-lg text-center lg:mt-12">
           <h3 className="text-2xl font-bold mb-2 text-white">Vote no Melhor da Partida!</h3>
           <p className="text-gray-400 mb-4">Partida: Fúria Gaúcha vs Estrelas do Sul</p>
