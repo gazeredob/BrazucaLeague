@@ -9,14 +9,14 @@ const LOGO_LV = 'https://i.imgur.com/m5c1g5g.png'; // Leões do Vale (Genérico)
 const BANNER_GENERICO = 'https://kingsleague.pro/img/bg-card-players.png';
 
 export const timesData = [
-  { id: 1, nome: "Fúria Gaúcha", logo: LOGO_FG, banner: BANNER_GENERICO, vitorias: 8, derrotas: 2, gp: 35, gc: 15, sg: 20 },
-  { id: 2, nome: "Estrelas do Sul", logo: LOGO_ES, banner: BANNER_GENERICO, vitorias: 7, derrotas: 3, gp: 30, gc: 20, sg: 10 },
-  { id: 3, nome: "Leões do Vale", logo: LOGO_LV, banner: BANNER_GENERICO, vitorias: 6, derrotas: 4, gp: 25, gc: 22, sg: 3 },
-  { id: 4, nome: "Tempestade Azul", logo: LOGO_LV, banner: BANNER_GENERICO, vitorias: 5, derrotas: 5, gp: 24, gc: 24, sg: 0 },
-  { id: 5, nome: "Panteras da Serra", logo: LOGO_LV, banner: BANNER_GENERICO, vitorias: 4, derrotas: 6, gp: 20, gc: 28, sg: -8 },
-  { id: 6, nome: "Guerreiros do Asfalto", logo: LOGO_LV, banner: BANNER_GENERICO, vitorias: 3, derrotas: 7, gp: 18, gc: 32, sg: -14 },
-  { id: 7, nome: "Titãs do Pampa", logo: LOGO_LV, banner: BANNER_GENERICO, vitorias: 2, derrotas: 8, gp: 15, gc: 35, sg: -20 },
-  { id: 8, nome: "Corsários da Ilha", logo: LOGO_LV, banner: BANNER_GENERICO, vitorias: 1, derrotas: 9, gp: 12, gc: 40, sg: -28 },
+  { id: 1, nome: "Fúria Gaúcha", acronym: "FGA", logo: LOGO_FG, banner: BANNER_GENERICO, vitorias: 8, derrotas: 2, gp: 35, gc: 15, sg: 20 },
+  { id: 2, nome: "Estrelas do Sul", acronym: "EDS", logo: LOGO_ES, banner: BANNER_GENERICO, vitorias: 7, derrotas: 3, gp: 30, gc: 20, sg: 10 },
+  { id: 3, nome: "Leões do Vale", acronym: "LDV", logo: LOGO_LV, banner: BANNER_GENERICO, vitorias: 6, derrotas: 4, gp: 25, gc: 22, sg: 3 },
+  { id: 4, nome: "Tempestade Azul", acronym: "TPA", logo: LOGO_LV, banner: BANNER_GENERICO, vitorias: 5, derrotas: 5, gp: 24, gc: 24, sg: 0 },
+  { id: 5, nome: "Panteras da Serra", acronym: "PAN", logo: LOGO_LV, banner: BANNER_GENERICO, vitorias: 4, derrotas: 6, gp: 20, gc: 28, sg: -8 },
+  { id: 6, nome: "Guerreiros do Asfalto", acronym: "GDA", logo: LOGO_LV, banner: BANNER_GENERICO, vitorias: 3, derrotas: 7, gp: 18, gc: 32, sg: -14 },
+  { id: 7, nome: "Titãs do Pampa", acronym: "TIT", logo: LOGO_LV, banner: BANNER_GENERICO, vitorias: 2, derrotas: 8, gp: 15, gc: 35, sg: -20 },
+  { id: 8, nome: "Corsários da Ilha", acronym: "COR", logo: LOGO_LV, banner: BANNER_GENERICO, vitorias: 1, derrotas: 9, gp: 12, gc: 40, sg: -28 },
 ];
 
 export const jogadoresData = [
