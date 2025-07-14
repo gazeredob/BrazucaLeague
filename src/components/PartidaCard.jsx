@@ -1,5 +1,6 @@
-import { timesData } from '../data';
+import { timesData, partidasData } from '../data'; // Importamos AMBOS os dados aqui
 
+// O componente TimeRow permanece o mesmo
 const TimeRow = ({ time }) => (
   <div className="flex items-center justify-start space-x-4">
     <span className="font-bold text-2xl w-16 text-left">{time ? time.acronym : 'N/A'}</span>
@@ -8,22 +9,36 @@ const TimeRow = ({ time }) => (
 );
 
 export const PartidaCard = ({ partida }) => {
-  // Verificação de segurança: Se 'partida' não for um objeto válido, não faz nada.
-  if (!partida) {
-    return null; 
+  // Se por algum motivo o card for chamado sem uma partida ou sem um ID, ele não quebra a página.
+  if (!partida || !partida.id) {
+    return null;
   }
 
-  const timeCasa = timesData.find(t => t.id === partida.timeCasaId);
-  const timeFora = timesData.find(t => t.id === partida.timeForaId);
+  // ====================================================================================
+  // ===== A MUDANÇA FUNDAMENTAL ESTÁ AQUI =====
+  // 1. IGNORAMOS os dados que vieram no objeto 'partida' (exceto o ID).
+  // 2. Usamos o ID para buscar os dados COMPLETOS e CORRETOS na fonte original 'partidasData'.
+  const partidaCompleta = partidasData.find(p => p.id === partida.id);
+  // ====================================================================================
 
-  // A LÓGICA CORRETA E MAIS SEGURA
-  // Usamos typeof para garantir que são números, evitando problemas com "0" sendo falso.
-  const partidaFinalizada = typeof partida.placarCasa === 'number' && typeof partida.placarFora === 'number';
+  // Se o ID for inválido e não encontrarmos a partida, também não quebramos a página.
+  if (!partidaCompleta) {
+    console.error(`Partida com ID ${partida.id} não foi encontrada no arquivo de dados.`);
+    return null;
+  }
+
+  // A partir daqui, usamos SEMPRE o nosso objeto 'partidaCompleta', que sabemos ser confiável.
+  const timeCasa = timesData.find(t => t.id === partidaCompleta.timeCasaId);
+  const timeFora = timesData.find(t => t.id === partidaCompleta.timeForaId);
+
+  // A lógica para verificar se o jogo terminou agora usa a nossa fonte segura de dados.
+  const partidaFinalizada = typeof partidaCompleta.placarCasa === 'number' && typeof partidaCompleta.placarFora === 'number';
 
   return (
     <div className="bg-brand-dark/50 p-4 rounded-lg text-white">
+      {/* Usamos 'partidaCompleta' para data e hora */}
       <div className="text-center text-sm text-gray-400 font-semibold border-b border-gray-700 pb-2 mb-4">
-        {partida.data} - {partida.hora} BRA
+        {partidaCompleta.data} - {partidaCompleta.hora} BRA
       </div>
       <div className="flex items-center justify-between">
         <div className="space-y-4">
@@ -31,12 +46,12 @@ export const PartidaCard = ({ partida }) => {
           <TimeRow time={timeFora} />
         </div>
         
-        {/* RENDERIZAÇÃO CONDICIONAL FINAL */}
         <div className="bg-gray-800 rounded-lg flex flex-col items-center justify-center space-y-2 w-20 h-24">
           {partidaFinalizada ? (
             <>
-              <span className="text-2xl font-bold">{partida.placarCasa}</span>
-              <span className="text-2xl font-bold">{partida.placarFora}</span>
+              {/* Usamos 'partidaCompleta' para os placares */}
+              <span className="text-2xl font-bold">{partidaCompleta.placarCasa}</span>
+              <span className="text-2xl font-bold">{partidaCompleta.placarFora}</span>
             </>
           ) : (
             <span className="text-xl font-bold">VS</span>
