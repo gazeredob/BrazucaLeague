@@ -8,40 +8,40 @@ const TimeRow = ({ time }) => (
   </div>
 );
 
-// Card de Partida com o novo design
+// Card de Partida com a lógica do placar CORRIGIDA
 export const PartidaCard = ({ partida }) => {
   const timeCasa = timesData.find(t => t.id === partida.timeCasaId);
   const timeFora = timesData.find(t => t.id === partida.timeForaId);
-  const partidaFinalizada = partida.placarCasa !== null;
+
+  // A CONDIÇÃO CHAVE ESTÁ AQUI:
+  // Verifica se o placar não é nulo. Isso garante que jogos futuros mostrarão "VS".
+  const partidaFinalizada = partida.placarCasa !== null && partida.placarFora !== null;
 
   return (
-    // Container principal do card
-    <div className="bg-gray-900 p-4 rounded-lg text-white">
+    <div className="bg-brand-dark/50 p-4 rounded-lg text-white">
       {/* Informações da partida */}
       <div className="text-center text-sm text-gray-400 font-semibold border-b border-gray-700 pb-2 mb-4">
         {partida.data} - {partida.hora} BRA
       </div>
 
-      {/* Container principal (Times + Placar) */}
       <div className="flex items-center justify-between">
-        
         {/* Coluna dos Times */}
         <div className="space-y-4">
           <TimeRow time={timeCasa} />
           <TimeRow time={timeFora} />
         </div>
 
-        {/* Coluna do Placar (condicional) */}
-        {partidaFinalizada ? (
-          <div className="bg-gray-800 rounded-lg flex flex-col items-center justify-center space-y-2 w-20 h-24">
-            <span className="text-2xl font-bold">{partida.placarCasa}</span>
-            <span className="text-2xl font-bold">{partida.placarFora}</span>
-          </div>
-        ) : (
-          <div className="bg-gray-800 rounded-lg flex flex-col items-center justify-center w-20 h-24">
-             <span className="text-xl font-bold">VS</span>
-          </div>
-        )}
+        {/* Coluna do Placar com a lógica CORRETA */}
+        <div className="bg-gray-800 rounded-lg flex flex-col items-center justify-center space-y-2 w-20 h-24">
+          {partidaFinalizada ? (
+            <>
+              <span className="text-2xl font-bold">{partida.placarCasa}</span>
+              <span className="text-2xl font-bold">{partida.placarFora}</span>
+            </>
+          ) : (
+            <span className="text-xl font-bold">VS</span>
+          )}
+        </div>
       </div>
     </div>
   );
